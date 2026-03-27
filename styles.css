@@ -81,15 +81,16 @@ body {
   position: fixed;
   top: var(--header-height);
   width: 100%;
-  height: calc(100vh - var(--header-height));
+  height: calc(100dvh - var(--header-height));
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .container {
-  width: 90%;
-  height: 90%;
+  width: 96%;
+  height: 92%;
+  max-height: 100%;
 }
 
 .game-frame,
