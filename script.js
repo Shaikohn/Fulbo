@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ========================= PLAY (PLACEHOLDER) ========================= */
   if (playBtn) {
     playBtn.addEventListener('click', () => {
-      /* Se oculta el boton de play como placeholder de inicio
+      /* Se oculta el boton de play como placeholder de inicio */
       playBtn.classList.add('hidden');
       /* Aca se puede integrar la inicialización del loader de Unity. */
       document.dispatchEvent(new Event('unity:start'));
