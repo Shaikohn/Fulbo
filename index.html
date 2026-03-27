@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>FULBO</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!--
+    Pantalla de orientación (solo mobile en vertical).
+    Se activa vía CSS media query.
+  -->
+  <div class="orientation-warning">
+    <div class="orientation-warning__content">
+
+      <h1 class="orientation-warning__logo">FULBO</h1>
+
+      <p class="orientation-warning__text">
+        Por favor, girá tu dispositivo a horizontal para continuar.
+      </p>
+
+      <!--
+        Ícono animado de referencia visual.
+        No cumple ninguna función lógica.
+        Se puede reemplazar por imagen/video si se desea.
+      -->
+      <div class="orientation-warning__icon">
+        <div class="phone">
+          <div class="phone-screen"></div>
+        </div>
+      </div>
+
+      <p class="orientation-warning__subtext">
+        Corroborá que esté desactivado el bloqueo de orientación de pantalla.
+      </p>
+
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header class="site-header">
+
+    <!--
+      Botón de navegación hacia atrás.
+      Actualmente apunta a index.html.
+
+      Ajustar según routing real.
+    -->
+    <a href="index.html" class="back-button" aria-label="Volver">
+      <svg viewBox="0 0 24 24" fill="none">
+        <path
+          d="M15 18l-6-6 6-6"
+          stroke="currentColor"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </svg>
+    </a>
+
+    <!-- Logo / branding -->
+    <h1 class="site-title">FULBO</h1>
+  </header>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!--
+      Contenedor principal del layout.
+
+      IMPORTANTE:
+      - Ocupa el 90% del espacio disponible (viewport - header)
+      - Está centrado con flexbox
+      - Está pensado para evitar scroll
+
+      No modificar tamaños sin revisar el layout general.
+    -->
+    <div class="container">
+
+      <div class="game-frame">
+
+        <!--
+          CONTENEDOR DE INTEGRACIÓN UNITY
+
+          Punto de montaje del build WebGL.
+          No usar iframe.
+
+          El runtime de Unity debe inicializarse dentro de:
+          #unity-content
+        -->
+        <div id="unity-container">
+
+          <!--
+            ROOT DE UNITY
+
+            Acá se debería renderizar:
+            - canvas
+            - loader
+            - UI propia del build
+
+            Ejemplo:
+            document.getElementById('unity-content')
+          -->
+          <div id="unity-content">
+
+            <!--
+              BOTÓN PLAY (PLACEHOLDER)
+
+              Comportamiento actual:
+              - Al hacer click se oculta (feedback visual)
+              - Dispara evento custom: 'unity:start'
+            -->
+            <button class="play-btn" type="button" aria-label="Iniciar demo">
+              <svg viewBox="0 0 24 24">
+                <path d="M5 3v18l15-9L5 3z" fill="currentColor"/>
+              </svg>
+            </button>
+
+            <!--
+              BOTÓN FULLSCREEN
+
+              Comportamiento:
+              - Toggle fullscreen sobre #unity-container
+              - Soporta browsers estándar + Safari (webkit)
+
+              Se puede adaptar para:
+              - fullscreen del canvas específico
+              - fullscreen propio de Unity
+            -->
+            <button class="fullscreen-btn" type="button" aria-label="Pantalla completa">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M3 8V3H8" stroke="currentColor" stroke-width="1"/>
+                <path d="M16 3H21V8" stroke="currentColor" stroke-width="1"/>
+                <path d="M3 16V21H8" stroke="currentColor" stroke-width="1"/>
+                <path d="M16 21H21V16" stroke="currentColor" stroke-width="1"/>
+              </svg>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!--
+    script.js maneja:
+    - fullscreen
+    - evento 'unity:start'
+    - interacción básica UI
+
+    No contiene lógica del juego.
+  -->
+  <script src="script.js"></script>
+</body>
+</html>
