@@ -24,7 +24,7 @@ body {
 
 body {
   font-family: system-ui, sans-serif;
-  background: var(--bg);
+  background: url("assets/fondo.png") center / cover no-repeat;
 }
 
 /* ================= HEADER ================= */
@@ -42,11 +42,9 @@ body {
   z-index: 1000;
 }
 
-.site-title {
-  color: #fff;
-  font-size: var(--title-desktop);
-  font-weight: 800;
-  font-style: italic;
+.site-logo {
+  height: 200px;
+  object-fit: contain;
 }
 
 /* BACK BUTTON */
@@ -242,6 +240,15 @@ body {
     width: var(--fullscreen-size-mobile);
     height: var(--fullscreen-size-mobile);
   }
+
+.site-logo {
+  height: 48px;
+  object-fit: contain;
+}
+
+  .orientation-logo {
+    height: 48px;
+  }
 }
 
 /* MOBILE VERTICAL */
@@ -255,4 +262,9 @@ body {
   .main-content {
     display: none;
   }
+}
+
+.orientation-logo {
+  height: 200px;
+  object-fit: contain;
 }
